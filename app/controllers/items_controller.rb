@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
 
   def new
     # @item = Item.new
+    # current_user.items -> correspond to association between user and item(has_many)
     @item = current_user.items.build
   end
 
