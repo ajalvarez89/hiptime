@@ -1,11 +1,15 @@
-<div class="col-md-8 col-md-offset-2">
-  <% @items.each do |item| %>
-  <h2><%= link_to item.title, item %></h2>
-  <p><%= item.description %></p>
+<% if user_signed_in? %>
+  <div class="col-md-8 col-md-offset-2">
+    <% @items.each do |item| %>
+    <h2><%= link_to item.title, item %></h2>
+    <p><%= item.description %></p>
+    <% end %>
+    <%= link_to  "New Item", new_item_path , class: "btn btn-danger" %>
+  </div>
+<% else %>
+  <%= render  "welcome_page" %>
 <% end %>
 
-<%= link_to  "New Item", new_item_path %>
-</div>
 
 
 
